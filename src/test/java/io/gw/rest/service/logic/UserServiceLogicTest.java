@@ -10,6 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/*
+* Test Method using REST Client
+* Test Method using Unit Test
+* */
 @SpringBootTest
 public class UserServiceLogicTest {
     @Autowired
