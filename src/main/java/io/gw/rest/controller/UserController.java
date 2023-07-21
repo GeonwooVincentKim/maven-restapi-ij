@@ -5,6 +5,8 @@ import io.gw.rest.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /*
 * Controller
 * The method takes a `Model` object as a parameter and adds an attribute called "message" to it
@@ -54,8 +56,13 @@ public class UserController {
     // With the Spring Boot updated, GetMapping has added to the Spring Boot MVC pattern
     // So it doesn't need to use RequestMapping anymore
     // @RequestMapping(value="/users")
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/{id}")  // {id} is the Path Variable
     public User find(@PathVariable String id) {
         return userService.find(id);
+    }
+
+    @GetMapping("/users")
+    public List<User> findAll() {
+        return userService.findAll();
     }
 }
