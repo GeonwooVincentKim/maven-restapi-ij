@@ -3,9 +3,7 @@ package io.gw.rest.controller;
 import io.gw.rest.entity.User;
 import io.gw.rest.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /*
 * Controller
@@ -51,5 +49,13 @@ public class UserController {
     @PostMapping("/users")
     public String register(@RequestBody User newUser) {
         return userService.register(newUser);
+    }
+
+    // With the Spring Boot updated, GetMapping has added to the Spring Boot MVC pattern
+    // So it doesn't need to use RequestMapping anymore
+    // @RequestMapping(value="/users")
+    @GetMapping("/users/{id}")
+    public User find(@PathVariable String id) {
+        return userService.find(id);
     }
 }
