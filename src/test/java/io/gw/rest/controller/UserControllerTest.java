@@ -47,6 +47,8 @@ class UserControllerTest {
     void register() throws Exception {
         User sample = User.sample(); // Created Testing User
         String content = objectMapper.writeValueAsString(sample); // Convert to JSON form
+
+        // perform, content, contentType, accept, Expect and Do
         mockMvc.perform(post("/users")
                 .content(content)
                 .contentType(MediaType.APPLICATION_JSON)
