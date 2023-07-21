@@ -65,4 +65,14 @@ public class UserController {
     public List<User> findAll() {
         return userService.findAll();
     }
+
+    @PutMapping("/users")
+    public void modify(@RequestBody User modifyUser) {
+        userService.modify(modifyUser);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void remove(@PathVariable String id) {
+        userService.remove(id);
+    }
 }
